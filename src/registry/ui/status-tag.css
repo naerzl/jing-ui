@@ -1,0 +1,37 @@
+.jing-status-tag {
+  --tag-color: hsl(var(--neutral, 225 10% 43%));
+  color: var(--tag-color);
+  background: color-mix(in srgb, var(--tag-color) 11%, transparent);
+  border-color: transparent;
+}
+
+.jing-status-tag[data-tone="success"] {
+  --tag-color: hsl(var(--success, 150 62% 30%));
+}
+.jing-status-tag[data-tone="warning"] {
+  --tag-color: hsl(var(--warning, 34 85% 35%));
+}
+.jing-status-tag[data-tone="danger"] {
+  --tag-color: hsl(var(--destructive, 0 68% 48%));
+}
+.jing-status-tag[data-tone="info"] {
+  --tag-color: hsl(var(--info, 216 72% 43%));
+}
+.jing-status-tag[data-tone="primary"] {
+  --tag-color: hsl(var(--primary, 224 72% 46%));
+}
+
+.jing-status-tag[data-variant="solid"] {
+  color: hsl(var(--background, 0 0% 100%));
+  background: var(--tag-color);
+  border-color: var(--tag-color);
+}
+
+.jing-status-tag[data-variant="outline"] {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--tag-color) 55%, transparent);
+}
+
+.jing-status-dot {
+  background: currentColor;
+}

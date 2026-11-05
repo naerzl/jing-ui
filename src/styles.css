@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 26% 97%;
+    --foreground: 225 24% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 225 24% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 24% 15%;
+    --secondary: 38 19% 92%;
+    --secondary-foreground: 225 24% 18%;
+    --muted: 40 17% 93%;
+    --muted-foreground: 225 10% 43%;
+    --border: 36 17% 85%;
+    --input: 36 17% 85%;
+    --destructive: 0 68% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --radius: 0.75rem;
+
+    --primary: 224 72% 46%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 224 75% 95%;
+    --accent-foreground: 224 72% 30%;
+    --ring: 224 72% 46%;
+
+    --success: 150 62% 30%;
+    --warning: 34 85% 35%;
+    --info: 216 72% 43%;
+    --neutral: 225 10% 43%;
+  }
+
+  :root[data-accent="orange"] {
+    --primary: 17 82% 47%;
+    --accent: 22 93% 94%;
+    --accent-foreground: 17 82% 27%;
+    --ring: 17 82% 47%;
+  }
+
+  :root[data-accent="forest"] {
+    --primary: 155 69% 30%;
+    --accent: 150 35% 92%;
+    --accent-foreground: 155 68% 22%;
+    --ring: 155 69% 30%;
+  }
+
+  :root[data-accent="violet"] {
+    --primary: 256 64% 49%;
+    --accent: 255 82% 95%;
+    --accent-foreground: 256 64% 31%;
+    --ring: 256 64% 49%;
+  }
+
+  :root.dark {
+    --background: 227 24% 10%;
+    --foreground: 40 24% 94%;
+    --card: 226 21% 14%;
+    --card-foreground: 40 24% 94%;
+    --popover: 226 21% 14%;
+    --popover-foreground: 40 24% 94%;
+    --secondary: 225 17% 21%;
+    --secondary-foreground: 40 24% 94%;
+    --muted: 225 17% 21%;
+    --muted-foreground: 220 11% 68%;
+    --border: 225 15% 27%;
+    --input: 225 15% 27%;
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 0 22% 12%;
+    --primary: 221 86% 73%;
+    --primary-foreground: 225 33% 12%;
+    --accent: 221 30% 24%;
+    --accent-foreground: 221 86% 85%;
+    --ring: 221 86% 73%;
+    --success: 151 58% 58%;
+    --warning: 40 84% 65%;
+    --info: 210 88% 71%;
+    --neutral: 220 11% 68%;
+  }
+
+  :root.dark[data-accent="orange"] {
+    --primary: 24 97% 72%;
+    --accent: 19 30% 25%;
+    --accent-foreground: 24 97% 85%;
+    --ring: 24 97% 72%;
+  }
+
+  :root.dark[data-accent="forest"] {
+    --primary: 153 60% 65%;
+    --accent: 153 25% 23%;
+    --accent-foreground: 153 60% 85%;
+    --ring: 153 60% 65%;
+  }
+
+  :root.dark[data-accent="violet"] {
+    --primary: 259 87% 78%;
+    --accent: 256 26% 25%;
+    --accent-foreground: 259 87% 88%;
+    --ring: 259 87% 78%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-editorial {
+    font-family: "Iowan Old Style", "Baskerville", Georgia, "Songti SC", serif;
+  }
+}
+
+.doc-content h1 {
+  font-family: "Iowan Old Style", "Baskerville", Georgia, "Songti SC", serif;
+  font-size: clamp(2.3rem, 5vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.doc-content h2 {
+  font-size: 1.5rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  margin: 2.5rem 0 1rem;
+}
+
+.doc-content h3 {
+  font-size: 1.1rem;
+  font-weight: 650;
+  margin: 2rem 0 0.75rem;
+}
+
+.doc-content p,
+.doc-content li {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.doc-content p {
+  margin: 0.9rem 0;
+}
+.doc-content ul {
+  list-style: disc;
+  margin: 1rem 0 1rem 1.4rem;
+}
+.doc-content ol {
+  list-style: decimal;
+  margin: 1rem 0 1rem 1.4rem;
+}
+.doc-content li {
+  padding-left: 0.25rem;
+  margin: 0.35rem 0;
+}
+
+.doc-content a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.doc-content code {
+  border-radius: 0.3rem;
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  font-size: 0.85em;
+  padding: 0.14rem 0.33rem;
+}
+
+.doc-content pre {
+  overflow-x: auto;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  background: hsl(var(--card));
+  margin: 1.4rem 0;
+  padding: 1.2rem;
+}
+
+.doc-content pre code {
+  padding: 0;
+  background: transparent;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.doc-content table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1.4rem 0;
+  font-size: 0.84rem;
+}
+
+.doc-content th,
+.doc-content td {
+  border-bottom: 1px solid hsl(var(--border));
+  padding: 0.85rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.doc-content th {
+  background: hsl(var(--muted));
+  font-weight: 650;
+}
+.doc-content td {
+  color: hsl(var(--muted-foreground));
+}
+.doc-content strong {
+  color: hsl(var(--foreground));
+  font-weight: 650;
+}

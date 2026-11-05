@@ -1,0 +1,105 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "jing-ui",
+  "homepage": "https://github.com/naerzl/jing-ui",
+  "items": [
+    {
+      "name": "counted-input",
+      "type": "registry:ui",
+      "title": "Counted Input",
+      "description": "带字数统计和可选单位后缀的输入框。",
+      "registryDependencies": ["input"],
+      "files": [
+        {
+          "path": "src/registry/ui/counted-input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/counted-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "counted-textarea",
+      "type": "registry:ui",
+      "title": "Counted Textarea",
+      "description": "支持受控与非受控值的字数统计文本域。",
+      "registryDependencies": ["textarea"],
+      "files": [
+        {
+          "path": "src/registry/ui/counted-textarea.tsx",
+          "type": "registry:ui",
+          "target": "@ui/counted-textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "multi-select",
+      "type": "registry:ui",
+      "title": "Multi Select",
+      "description": "支持搜索、批量选择与清空的受控多选器。",
+      "registryDependencies": [
+        "button",
+        "checkbox",
+        "input",
+        "popover",
+        "separator"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "src/registry/ui/multi-select.tsx",
+          "type": "registry:ui",
+          "target": "@ui/multi-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "steps",
+      "type": "registry:ui",
+      "title": "Steps",
+      "description": "可访问的行内或卡片式流程步骤。",
+      "registryDependencies": ["utils"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "src/registry/ui/steps.tsx",
+          "type": "registry:ui",
+          "target": "@ui/steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-tag",
+      "type": "registry:ui",
+      "title": "Status Tag",
+      "description": "语义状态标签，提供柔和、实色与描边样式。",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/ui/status-tag.tsx",
+          "type": "registry:ui",
+          "target": "@ui/status-tag.tsx"
+        },
+        {
+          "path": "src/registry/ui/status-tag.css",
+          "type": "registry:ui",
+          "target": "@ui/status-tag.css"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty State",
+      "description": "可组合图标、说明与操作的空状态。",
+      "registryDependencies": ["utils"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "src/registry/ui/empty-state.tsx",
+          "type": "registry:ui",
+          "target": "@ui/empty-state.tsx"
+        }
+      ]
+    }
+  ]
+}
