@@ -1,31 +1,34 @@
 # 来源项目组件盘点
 
-盘点日期：2026-11-05。以下记录是源码依赖和复用性判断，不代表运行环境已验证。公开仓库只收录通用交互的新实现，不包含来源项目的业务代码。
+盘点日期：2026-11-05。以下记录是源码依赖和复用性判断。公开仓库包含首版 6 个新实现，以及本次从来源项目迁入的 10 个组件和 1 个输入计数辅助项。迁入时保留主要 Props 与交互，替换项目专用样式令牌；`MoneyText` 修复大数分转元精度，`DataTable` 在缺少分页回调时禁用分页。
 
 ## `src/components/ui`：33 个
 
-| 类型                      | 组件                                                                                                                                                                                                                                       | 处理                                                                                |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
-| shadcn 基础原语与本地样式 | `alert`、`avatar`、`badge`、`breadcrumb`、`button`、`card`、`checkbox`、`dialog`、`drawer`、`dropdown-menu`、`form`、`label`、`popover`、`progress`、`radio-group`、`separator`、`skeleton`、`switch`、`table`、`tabs`、`toast`、`tooltip` | 消费端优先由官方 shadcn CLI 安装，避免在个人 registry 里重复维护原语                |
-| 已扩展的基础输入          | `input`、`input-count`、`textarea`、`select`                                                                                                                                                                                               | 首批提取字数统计为 `counted-input` / `counted-textarea`；可清空 Select 后续单独抽象 |
-| 组合型通用组件            | `multi-select`、`steps`、`calendar`、`date-picker`、`pagination`、`table-pagination`、`image-viewer`                                                                                                                                       | 首批重做 `multi-select`、`steps`；日期、分页和图片预览需要拆令牌与兼容行为          |
+| 类型                      | 组件                                                                                                                                                                                                                                       | 处理                                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| shadcn 基础原语与本地样式 | `alert`、`avatar`、`badge`、`breadcrumb`、`button`、`card`、`checkbox`、`dialog`、`drawer`、`dropdown-menu`、`form`、`label`、`popover`、`progress`、`radio-group`、`separator`、`skeleton`、`switch`、`table`、`tabs`、`toast`、`tooltip` | `table` 因 DataTable 的 `wrapperClassName` 依赖已迁入；其余基础原语继续由官方 shadcn CLI 安装 |
+| 已扩展的基础输入          | `input`、`input-count`、`textarea`、`select`                                                                                                                                                                                               | 已按原有 API 迁入；首版 `counted-input` / `counted-textarea` 作为不同 API 的新实现保留        |
+| 组合型通用组件            | `multi-select`、`steps`、`calendar`、`date-picker`、`pagination`、`table-pagination`、`image-viewer`                                                                                                                                       | `pagination` 已迁入；`multi-select`、`steps` 是新实现；其余待拆依赖后迁入                     |
 
 ## `src/components/base`：14 个
 
 | 迁移优先级   | 组件                                                                                            | 原因                                                                        |
 | ------------ | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | 首批         | `empty-state`、`status-tag`                                                                     | API 简单、无请求或路由依赖；已以独立实现进入本仓库                          |
-| 第二批       | `copyable-text`、`desc-list`、`money-text`、`page-header`、`result-card`、`time-text`           | 通用性较高，但需要统一日期、金额、反馈消息和颜色契约                        |
+| 已迁入       | `desc-list`、`money-text`、`result-card`、`time-text`                                           | 保留 Props，改用通用语义令牌；金额转换增加精度修复                          |
+| 下一批       | `copyable-text`、`page-header`                                                                  | 复制反馈需移除项目 Toast 依赖；页头需核对被注释的 `label` 行为              |
 | 拆分后再评估 | `metric-card`、`trend-card`、`e-chart`、`page-detail-shell`、`page-list-shell`、`box-animation` | 图表依赖 ECharts/Valtio，页面壳依赖路由或页面布局；动画需要明确业务以外用途 |
 
 ## `src/components/business`：8 个
 
-`data-table`、`filter-bar` 有通用潜力，但当前分别依赖 TanStack Table 和项目的日期/筛选组件，且表格包含较多项目行为。`detail-link`、`list-actions` 依赖路由或权限；`file-upload-field` 依赖项目上传 API；`monitoring-trend-chart`、`usage-rank-chart` 依赖图表主题和业务数据；`user-info-card` 依赖管理 API。首版均不公开。
+`data-table` 已迁入：其 API 不依赖请求、路由或权限；TanStack Table 和所需 UI 子组件由 registry 自动安装。`filter-bar` 仍依赖原项目日期选择器和筛选组件，需先迁移完整日期能力后再发布。`detail-link`、`list-actions` 依赖路由或权限；`file-upload-field` 依赖项目上传 API；`monitoring-trend-chart`、`usage-rank-chart` 依赖图表主题和业务数据；`user-info-card` 依赖管理 API。
 
 ## `src/components/feedback`：2 个
 
 `toast` 是 Sonner 的项目适配；`modal` 是命令式弹窗适配。后续若要发布，应设计为可注入的通用适配器，避免把项目反馈文案和挂载约定带入公共组件。
 
-## 首批发布清单
+## 当前发布清单
 
-`counted-input`、`counted-textarea`、`multi-select`、`steps`、`status-tag`、`empty-state`。这些是从现有交互需求提炼的新实现，API 与原项目并非完全等价；迁回原项目时要逐页核对原有 Props 和视觉行为。
+首版新实现：`counted-input`、`counted-textarea`、`multi-select`、`steps`、`status-tag`、`empty-state`。这些 API 与原项目不完全等价。
+
+来源项目迁入：`input`、`textarea`、`select`、`pagination`、`table`、`desc-list`、`money-text`、`time-text`、`result-card`、`data-table`。辅助项：`input-count`。迁入组件改用通用语义样式令牌，原业务项目未被修改。

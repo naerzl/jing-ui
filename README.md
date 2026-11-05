@@ -8,10 +8,11 @@
 
 ```bash
 pnpm dlx shadcn@latest add naerzl/jing-ui/multi-select
-pnpm dlx shadcn@latest add naerzl/jing-ui/counted-input
+pnpm dlx shadcn@latest add naerzl/jing-ui/input
+pnpm dlx shadcn@latest add naerzl/jing-ui/data-table
 ```
 
-也可以用发布标签锁定版本：`pnpm dlx shadcn@latest add naerzl/jing-ui/multi-select#v0.1.0`。组件依赖在 `registry.json` 中声明，CLI 会一并安装。
+也可以用发布标签锁定版本：`pnpm dlx shadcn@latest add naerzl/jing-ui/data-table#v0.2.0`。组件依赖在 `registry.json` 中声明，CLI 会一并安装。安装 `input`、`textarea`、`select`、`table` 会覆盖目标项目中的同名组件；先检查目标项目已有的定制。
 
 ## 本地运行
 
@@ -23,20 +24,21 @@ pnpm registry:validate
 pnpm build
 ```
 
-演示站：<https://naerzl.github.io/jing-ui/>。站内文档由仓库里的 Markdown 经 MDX 编译而成，组件说明见 [docs/components](./docs/components)，原项目盘点和迁移计划见 [docs/source-inventory.md](./docs/source-inventory.md)。
+演示站：<https://naerzl.github.io/jing-ui/>。站内文档由仓库里的 Markdown 经 MDX 编译而成，组件说明见 [docs/components](./docs/components)，原项目盘点和迁移状态见 [docs/source-inventory.md](./docs/source-inventory.md)。当前有 17 个 registry 条目，其中 6 个是首版新实现、10 个是从原项目迁入的组件、1 个是输入计数辅助项；包含 `DataTable` 业务组件。
 
 ## 架构
 
 | 目录                           | 作用                                        |
 | ------------------------------ | ------------------------------------------- |
 | `src/registry/ui/`             | 对外分发的组件源码，演示站直接引用          |
+| `src/registry/business/`       | 无 API、路由和权限依赖的业务组合组件        |
 | `registry.json`                | GitHub shadcn registry 清单、依赖、安装目标 |
 | `src/components/ui/`           | 演示站通过 shadcn CLI 安装的官方基础组件    |
 | `src/demo/`                    | MDX 文档入口和交互式组件示例                |
 | `src/theme/`、`src/styles.css` | 演示站的明暗模式、主题色与语义令牌          |
 | `docs/`                        | API、主题契约、迁移清单和贡献规范           |
 
-发布组件只使用通用 shadcn 语义令牌，不引用原业务项目的 API、路由、权限或专有状态。目标项目可以继续使用自己的主题；演示站展示 4 套主色和明暗模式切换。
+发布组件只使用通用 shadcn 语义令牌，不引用原业务项目的 API、路由、权限或专有状态。目标项目可以继续使用自己的主题；演示站展示 4 套主色和明暗模式切换。迁入组件尽量保留原有 Props 和交互，样式类按语义令牌适配；`MoneyText` 的分转元实现改为字符串移位以避免大数精度损失。
 
 ## 技术基线
 

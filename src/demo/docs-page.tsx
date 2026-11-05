@@ -3,10 +3,21 @@ import type * as React from 'react'
 import Architecture from '../../docs/architecture.md'
 import CountedInputDoc from '../../docs/components/counted-input.md'
 import CountedTextareaDoc from '../../docs/components/counted-textarea.md'
+import DataTableDoc from '../../docs/components/data-table.md'
+import DescListDoc from '../../docs/components/desc-list.md'
 import EmptyStateDoc from '../../docs/components/empty-state.md'
+import InputDoc from '../../docs/components/input.md'
+import InputCountDoc from '../../docs/components/input-count.md'
+import MoneyTextDoc from '../../docs/components/money-text.md'
 import MultiSelectDoc from '../../docs/components/multi-select.md'
+import PaginationDoc from '../../docs/components/pagination.md'
+import ResultCardDoc from '../../docs/components/result-card.md'
+import SelectDoc from '../../docs/components/select.md'
 import StatusTagDoc from '../../docs/components/status-tag.md'
 import StepsDoc from '../../docs/components/steps.md'
+import TableDoc from '../../docs/components/table.md'
+import TextareaDoc from '../../docs/components/textarea.md'
+import TimeTextDoc from '../../docs/components/time-text.md'
 import Contributing from '../../docs/contributing.md'
 import Inventory from '../../docs/source-inventory.md'
 import Theming from '../../docs/theming.md'
@@ -44,6 +55,49 @@ const DOCUMENTS = {
   'components/empty-state': {
     title: 'Empty State',
     component: EmptyStateDoc,
+    group: '组件',
+  },
+  'components/input-count': {
+    title: 'Input Count',
+    component: InputCountDoc,
+    group: '组件',
+  },
+  'components/input': { title: 'Input', component: InputDoc, group: '组件' },
+  'components/textarea': {
+    title: 'Textarea',
+    component: TextareaDoc,
+    group: '组件',
+  },
+  'components/select': { title: 'Select', component: SelectDoc, group: '组件' },
+  'components/pagination': {
+    title: 'Pagination',
+    component: PaginationDoc,
+    group: '组件',
+  },
+  'components/table': { title: 'Table', component: TableDoc, group: '组件' },
+  'components/desc-list': {
+    title: 'Desc List',
+    component: DescListDoc,
+    group: '组件',
+  },
+  'components/money-text': {
+    title: 'Money Text',
+    component: MoneyTextDoc,
+    group: '组件',
+  },
+  'components/time-text': {
+    title: 'Time Text',
+    component: TimeTextDoc,
+    group: '组件',
+  },
+  'components/result-card': {
+    title: 'Result Card',
+    component: ResultCardDoc,
+    group: '组件',
+  },
+  'components/data-table': {
+    title: 'Data Table · 业务',
+    component: DataTableDoc,
     group: '组件',
   },
 } as const

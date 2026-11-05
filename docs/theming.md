@@ -24,4 +24,4 @@
 
 Tailwind 3 的颜色映射需使用 `hsl(var(--primary) / <alpha-value>)` 等形式。若应用已有十六进制令牌，先在自身主题层建立 shadcn 语义别名，避免让分发组件依赖项目专用的 `text-1`、`surface`、`primary-500` 等名称。
 
-`StatusTag` 额外读取 `--success`、`--warning`、`--info`；没有定义时会使用组件内置回退色。颜色只是辅助信息，文案仍需明确表达状态。
+`StatusTag` 与 `ResultCard` 额外读取 `--success`、`--warning`、`--info`；没有定义时会使用组件内置回退色。颜色只是辅助信息，文案仍需明确表达状态。

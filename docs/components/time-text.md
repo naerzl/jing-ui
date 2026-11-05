@@ -1,0 +1,13 @@
+# Time Text
+
+原项目日期文本，支持绝对时间、相对时间和悬停提示。
+
+```bash
+pnpm dlx shadcn@latest add naerzl/jing-ui/time-text
+```
+
+```tsx
+;<TimeText value="2026-11-05T10:00:00+08:00" mode="both" />
+```
+
+`value` 接受字符串、数字、`Date` 或空值；`format` 默认 `YYYY-MM-DD HH:mm`，`mode` 为 `absolute`（默认）、`relative` 或 `both`。`fallback` 默认 `—`；无效日期也显示占位。相对时间使用 Day.js 中文语言包。

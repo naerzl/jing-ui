@@ -100,6 +100,177 @@
           "target": "@ui/empty-state.tsx"
         }
       ]
+    },
+    {
+      "name": "input-count",
+      "type": "registry:ui",
+      "title": "Input Count",
+      "description": "输入计数共享辅助组件。",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/ui/input-count.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input-count.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "来源项目输入框：单位后缀、字数统计、数值输入约束。",
+      "registryDependencies": ["utils", "naerzl/jing-ui/input-count"],
+      "files": [
+        {
+          "path": "src/registry/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "来源项目文本域：可选字数统计。",
+      "registryDependencies": ["utils", "naerzl/jing-ui/input-count"],
+      "files": [
+        {
+          "path": "src/registry/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "@ui/textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "来源项目可清空的 Radix Select。",
+      "registryDependencies": ["utils"],
+      "dependencies": ["@radix-ui/react-select@^2.4.1", "lucide-react"],
+      "files": [
+        {
+          "path": "src/registry/ui/select.tsx",
+          "type": "registry:ui",
+          "target": "@ui/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "来源项目分页器：页码、省略号、页大小及未知总数场景。",
+      "registryDependencies": ["button", "utils", "naerzl/jing-ui/select"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "src/registry/ui/pagination.tsx",
+          "type": "registry:ui",
+          "target": "@ui/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "来源项目表格基础元素，支持滚动容器类名。",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/ui/table.tsx",
+          "type": "registry:ui",
+          "target": "@ui/table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "desc-list",
+      "type": "registry:ui",
+      "title": "Desc List",
+      "description": "来源项目描述列表：列数、跨列和边框。",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/ui/desc-list.tsx",
+          "type": "registry:ui",
+          "target": "@ui/desc-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "money-text",
+      "type": "registry:ui",
+      "title": "Money Text",
+      "description": "来源项目金额格式化与分转元展示。",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/ui/money-text.tsx",
+          "type": "registry:ui",
+          "target": "@ui/money-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "time-text",
+      "type": "registry:ui",
+      "title": "Time Text",
+      "description": "来源项目日期、相对时间与空值展示。",
+      "registryDependencies": ["utils"],
+      "dependencies": ["dayjs@^1.11.23"],
+      "files": [
+        {
+          "path": "src/registry/ui/time-text.tsx",
+          "type": "registry:ui",
+          "target": "@ui/time-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "result-card",
+      "type": "registry:ui",
+      "title": "Result Card",
+      "description": "来源项目结果卡片：四种语义状态。",
+      "registryDependencies": ["utils"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "src/registry/ui/result-card.tsx",
+          "type": "registry:ui",
+          "target": "@ui/result-card.tsx"
+        },
+        {
+          "path": "src/registry/ui/result-card.css",
+          "type": "registry:ui",
+          "target": "@ui/result-card.css"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:component",
+      "title": "Data Table",
+      "description": "来源项目业务表格：排序、选择、固定列、分页、加载和空状态。",
+      "registryDependencies": [
+        "checkbox",
+        "tooltip",
+        "utils",
+        "naerzl/jing-ui/table",
+        "naerzl/jing-ui/pagination",
+        "naerzl/jing-ui/empty-state"
+      ],
+      "dependencies": ["@tanstack/react-table@^8.21.3", "lucide-react"],
+      "files": [
+        {
+          "path": "src/registry/business/data-table.tsx",
+          "type": "registry:component",
+          "target": "@components/business/data-table.tsx"
+        }
+      ]
     }
   ]
 }

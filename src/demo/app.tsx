@@ -26,6 +26,7 @@ import {
   useTheme,
 } from '@/theme/theme-provider'
 import { DocsPage } from './docs-page'
+import { SourceComponents } from './source-components'
 
 const COMPONENTS = [
   { id: 'counted-input', name: 'Counted Input', group: '表单' },
@@ -34,6 +35,17 @@ const COMPONENTS = [
   { id: 'steps', name: 'Steps', group: '流程' },
   { id: 'status-tag', name: 'Status Tag', group: '展示' },
   { id: 'empty-state', name: 'Empty State', group: '展示' },
+  { id: 'input-count', name: 'Input Count', group: '辅助' },
+  { id: 'input', name: 'Input', group: '表单' },
+  { id: 'textarea', name: 'Textarea', group: '表单' },
+  { id: 'select', name: 'Select', group: '表单' },
+  { id: 'pagination', name: 'Pagination', group: '导航' },
+  { id: 'table', name: 'Table', group: '数据' },
+  { id: 'desc-list', name: 'Desc List', group: '展示' },
+  { id: 'money-text', name: 'Money Text', group: '展示' },
+  { id: 'time-text', name: 'Time Text', group: '展示' },
+  { id: 'result-card', name: 'Result Card', group: '反馈' },
+  { id: 'data-table', name: 'Data Table', group: '业务' },
 ] as const
 
 const ACCENTS: { id: AccentColor; label: string; color: string }[] = [
@@ -260,7 +272,7 @@ function Catalog() {
               jing<span className="text-primary">/</span>ui
             </span>
             <span className="ml-1 hidden rounded-full border px-2 py-0.5 font-mono text-[10px] font-normal text-muted-foreground sm:inline">
-              v0.1
+              v0.2
             </span>
           </a>
           <div className="flex items-center gap-4">
@@ -293,7 +305,7 @@ function Catalog() {
         <aside className="hidden lg:block">
           <nav aria-label="组件目录" className="sticky top-24 pt-11">
             <p className="mb-4 pl-3 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-              Catalog / 06
+              Catalog / {String(COMPONENTS.length).padStart(2, '0')}
             </p>
             {COMPONENTS.map((item) => (
               <a
@@ -556,6 +568,7 @@ function Catalog() {
                   />
                 </div>
               </Specimen>
+              <SourceComponents Specimen={Specimen} />
             </div>
           </div>
         </main>

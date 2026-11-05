@@ -1,0 +1,17 @@
+.jing-result-icon {
+  --result-color: hsl(var(--success, 150 62% 30%));
+  color: var(--result-color);
+  background: color-mix(in srgb, var(--result-color) 12%, transparent);
+}
+
+.jing-result-icon[data-variant="warning"] {
+  --result-color: hsl(var(--warning, 34 85% 35%));
+}
+
+.jing-result-icon[data-variant="danger"] {
+  --result-color: hsl(var(--destructive, 0 68% 48%));
+}
+
+.jing-result-icon[data-variant="info"] {
+  --result-color: hsl(var(--info, 216 72% 43%));
+}

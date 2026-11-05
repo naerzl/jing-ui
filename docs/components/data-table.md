@@ -1,0 +1,39 @@
+# Data Table
+
+从原项目 `src/components/business/data-table.tsx` 迁入的通用业务表格，保留列配置、客户端或外部排序、行选择、固定列、溢出提示、工具栏、分页、加载与空状态。接口数据由调用方提供，组件不请求 API。
+
+```bash
+pnpm dlx shadcn@latest add naerzl/jing-ui/data-table
+```
+
+```tsx
+type Row = { id: string; name: string; status: string }
+const columns: ColumnDef<Row>[] = [
+  { key: 'name', title: '名称', dataIndex: 'name', sorter: true },
+  { key: 'status', title: '状态', dataIndex: 'status' },
+]
+
+<DataTable
+  columns={columns}
+  data={rows}
+  rowKey="id"
+  pagination={{
+    page,
+    pageSize,
+    total,
+    onChange: (nextPage, nextSize) => setPagination({ page: nextPage, pageSize: nextSize }),
+  }}
+/>
+```
+
+| Prop                             | 说明                                                                   |
+| -------------------------------- | ---------------------------------------------------------------------- |
+| `columns`                        | 列定义；支持 `width`、`fixed`、`align`、`ellipsis`、`render`、`sorter` |
+| `data` / `rowKey`                | 行数据和稳定行标识                                                     |
+| `loading` / `empty` / `toolbar`  | 加载、空状态、工具栏                                                   |
+| `selection`                      | 受控行选择；`type` 可选 `checkbox` 或 `radio`                          |
+| `sortState` / `onSortChange`     | 提供 `onSortChange` 时排序交给外部；否则内部排序                       |
+| `pagination`                     | 页码、每页条数、总数和回调；支持 `totalIsEstimate`、`hasNextPage`      |
+| `fillHeight` / `scroll` / `size` | 高度、横向滚动和密度                                                   |
+
+依赖 TanStack Table 8、Checkbox、Tooltip，以及本仓库的 Table、Pagination、Empty State。安装命令会自动拉取依赖。`pagination.onChange` 缺失时分页禁用，避免无效点击。
