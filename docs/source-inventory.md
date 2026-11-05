@@ -10,7 +10,7 @@
 | 已扩展的基础输入          | `input`、`input-count`、`textarea`、`select`                                                                                                                                                                                               | 首批提取字数统计为 `counted-input` / `counted-textarea`；可清空 Select 后续单独抽象 |
 | 组合型通用组件            | `multi-select`、`steps`、`calendar`、`date-picker`、`pagination`、`table-pagination`、`image-viewer`                                                                                                                                       | 首批重做 `multi-select`、`steps`；日期、分页和图片预览需要拆令牌与兼容行为          |
 
-## `src/components/base`：13 个
+## `src/components/base`：14 个
 
 | 迁移优先级   | 组件                                                                                            | 原因                                                                        |
 | ------------ | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
