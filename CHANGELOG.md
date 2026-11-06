@@ -1,5 +1,9 @@
 # 变更记录
 
+## 0.2.1
+
+- 将 registry 内部自有依赖固定到同一发布标签。安装带版本号的业务组件时，Table、Pagination、Select 等自有依赖不会意外跟随默认分支变化。
+
 ## 0.2.0
 
 - 从来源项目迁入 `Input`、`Textarea`、可清空 `Select`、`Pagination`、`Table`、`DescList`、`MoneyText`、`TimeText`、`ResultCard` 和业务组件 `DataTable`，并提供 `InputCount` 辅助项。

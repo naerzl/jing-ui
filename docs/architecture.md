@@ -19,7 +19,7 @@
 ## 依赖规则
 
 1. 没有本项目扩展的基础原语优先由官方 shadcn CLI 安装，`registryDependencies` 使用其裸名称，例如 `button`。
-2. 自有组件之间若有依赖，使用完整 GitHub 地址 `naerzl/jing-ui/<item>`，不能使用裸名称。
+2. 自有组件之间若有依赖，使用完整 GitHub 地址并锁定发布标签，如 `naerzl/jing-ui/table#v0.2.1`。裸名称会解析到官方组件；顶层安装标签不会自动传给依赖。
 3. npm 包写入 `dependencies`；每个组件仅声明自身实际需要的包。
 4. 公开组件不得 import `src/demo`、`src/theme` 或原项目的 `api`、`router`、`store`。业务组件放在 `src/registry/business`，依赖的自有 UI 项用相对路径引用，安装目标对应 `@components/business` 与 `@ui`。
 5. 组件文件名和 registry item 名称保持 kebab-case。
@@ -31,8 +31,8 @@
 ## 发布流程
 
 1. 新组件先进入 `src/registry/ui` 或 `src/registry/business`，补充 `registry.json`、`docs/components` 与演示。
-2. 本地运行 `pnpm check`、`pnpm registry:validate`、`pnpm build`。
-3. 合并到 `main` 后，由 GitHub Actions 部署演示站；发布时打 `vX.Y.Z` 标签。
+2. 变更版本时先更新 `package.json`，运行 `pnpm registry:sync` 将自有依赖锁定到同一标签，再运行 `pnpm check`、`pnpm registry:validate`、`pnpm build`。
+3. 合并到 `main` 后，由 GitHub Actions 部署演示站；发布时打相同的 `vX.Y.Z` 标签。
 4. 使用者可安装 `#vX.Y.Z` 固定版本。组件源码安装到使用者项目后不自动升级，升级前比较本地改动。
 
 ## 后续迭代
