@@ -1,5 +1,9 @@
 # 变更记录
 
+## 0.2.2
+
+- 分页器显式声明官方 Button 所需的 `class-variance-authority`，确保从全新 shadcn 项目安装 DataTable 时可直接通过 TypeScript 检查。
+
 ## 0.2.1
 
 - 将 registry 内部自有依赖固定到同一发布标签。安装带版本号的业务组件时，Table、Pagination、Select 等自有依赖不会意外跟随默认分支变化。

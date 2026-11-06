@@ -236,7 +236,7 @@ export function SourceComponents({ Specimen }: SourceComponentsProps) {
             bordered
             items={[
               { label: '名称', value: 'Jing UI' },
-              { label: '版本', value: '0.2.1' },
+              { label: '版本', value: '0.2.2' },
               { label: '分发方式', value: 'GitHub shadcn registry', span: 2 },
             ]}
           />

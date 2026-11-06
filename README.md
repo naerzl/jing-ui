@@ -12,7 +12,7 @@ pnpm dlx shadcn@latest add naerzl/jing-ui/input
 pnpm dlx shadcn@latest add naerzl/jing-ui/data-table
 ```
 
-也可以用发布标签锁定版本：`pnpm dlx shadcn@latest add naerzl/jing-ui/data-table#v0.2.1`。自有组件依赖也固定到同一标签，CLI 会一并安装。安装 `input`、`textarea`、`select`、`table` 会覆盖目标项目中的同名组件；先检查目标项目已有的定制。
+也可以用发布标签锁定版本：`pnpm dlx shadcn@latest add naerzl/jing-ui/data-table#v0.2.2`。自有组件依赖也固定到同一标签，CLI 会一并安装。安装 `input`、`textarea`、`select`、`table` 会覆盖目标项目中的同名组件；先检查目标项目已有的定制。
 
 ## 本地运行
 

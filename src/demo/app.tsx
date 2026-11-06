@@ -272,7 +272,7 @@ function Catalog() {
               jing<span className="text-primary">/</span>ui
             </span>
             <span className="ml-1 hidden rounded-full border px-2 py-0.5 font-mono text-[10px] font-normal text-muted-foreground sm:inline">
-              v0.2.1
+              v0.2.2
             </span>
           </a>
           <div className="flex items-center gap-4">
