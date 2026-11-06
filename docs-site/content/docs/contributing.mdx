@@ -1,0 +1,14 @@
+---
+title: 新增组件
+description: 从判断通用性到打标签发布，一个组件进入仓库的完整步骤。
+---
+
+1. 确定组件是通用交互，先检查 shadcn 官方是否已有原语可以组合。
+2. 在 `src/registry/ui/<name>.tsx` 实现组件，使用语义令牌和明确的 Props 类型；额外 CSS 与组件放在同目录。
+3. 在根目录 `registry.json` 增加同名 item，并写全 npm 与 registry 依赖。内部组件依赖使用完整 GitHub 地址。
+4. 在 `src/demo/component-catalog.ts` 登记名称、分类、说明和用法，在 `src/demo/component-examples.tsx` 增加可交互的示例。演示站与文档预览共用这个示例。
+5. 在 `docs-site/content/docs/components/<name>.mdx` 写安装方式、Props、示例和注意事项；在 `meta.json` 里补上排序。文档页会根据组件名称自动显示预览。
+6. 运行 `pnpm check`、`pnpm registry:validate` 和带部署前缀的 `pnpm build:pages`，确认明暗模式、各主题色和手机宽度下的预览可用。构建会检查每个分发条目的文档、预览和资源链接。
+7. 合并后打版本标签，并用标签地址验证安装。
+
+组件不得直接依赖原项目的 API、权限、路由或 Valtio store。需要这些能力时，通过 Props 传入数据与回调。

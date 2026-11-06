@@ -24,16 +24,23 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
+          cache-dependency-path: |
+            pnpm-lock.yaml
+            docs-site/pnpm-lock.yaml
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Install docs-site dependencies
+        run: pnpm --dir docs-site install --frozen-lockfile
       - name: Check TypeScript and formatting
         run: pnpm check
       - name: Validate registry
         run: pnpm registry:validate
-      - name: Build documentation
-        run: pnpm build
+      - name: Build demo and docs
+        run: pnpm build:pages
         env:
           GITHUB_PAGES: "true"
+          DOCS_BASE_PATH: /jing-ui
+          NEXT_PUBLIC_BASE_PATH: /jing-ui
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v5

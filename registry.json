@@ -120,7 +120,7 @@
       "type": "registry:ui",
       "title": "Input",
       "description": "来源项目输入框：单位后缀、字数统计、数值输入约束。",
-      "registryDependencies": ["utils", "naerzl/jing-ui/input-count#v0.2.2"],
+      "registryDependencies": ["utils", "naerzl/jing-ui/input-count#v0.2.3"],
       "files": [
         {
           "path": "src/registry/ui/input.tsx",
@@ -134,7 +134,7 @@
       "type": "registry:ui",
       "title": "Textarea",
       "description": "来源项目文本域：可选字数统计。",
-      "registryDependencies": ["utils", "naerzl/jing-ui/input-count#v0.2.2"],
+      "registryDependencies": ["utils", "naerzl/jing-ui/input-count#v0.2.3"],
       "files": [
         {
           "path": "src/registry/ui/textarea.tsx",
@@ -166,7 +166,7 @@
       "registryDependencies": [
         "button",
         "utils",
-        "naerzl/jing-ui/select#v0.2.2"
+        "naerzl/jing-ui/select#v0.2.3"
       ],
       "dependencies": ["lucide-react", "class-variance-authority@^0.7.1"],
       "files": [
@@ -263,9 +263,9 @@
         "checkbox",
         "tooltip",
         "utils",
-        "naerzl/jing-ui/table#v0.2.2",
-        "naerzl/jing-ui/pagination#v0.2.2",
-        "naerzl/jing-ui/empty-state#v0.2.2"
+        "naerzl/jing-ui/table#v0.2.3",
+        "naerzl/jing-ui/pagination#v0.2.3",
+        "naerzl/jing-ui/empty-state#v0.2.3"
       ],
       "dependencies": ["@tanstack/react-table@^8.21.3", "lucide-react"],
       "files": [

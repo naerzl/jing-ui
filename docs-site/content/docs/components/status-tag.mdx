@@ -1,0 +1,19 @@
+---
+title: Status Tag
+description: 语义状态标签，安装时会同时带入 status-tag.css。
+---
+
+## 安装
+
+```bash
+pnpm dlx shadcn@latest add naerzl/jing-ui/status-tag
+```
+
+## 使用方法
+
+```tsx
+<StatusTag tone="success">已完成</StatusTag>
+<StatusTag tone="warning" variant="outline">待处理</StatusTag>
+```
+
+`tone`：`success`、`warning`、`danger`、`info`、`neutral`、`primary`，默认 `neutral`。`variant`：`soft`（默认）、`solid`、`outline`。`dot` 默认显示，可用 `icon` 替换。使用 `--success`、`--warning`、`--info` 等语义变量，并内置回退色；状态必须保留可读文案。

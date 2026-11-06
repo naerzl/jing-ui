@@ -4,7 +4,22 @@
   "javascript": {
     "formatter": { "quoteStyle": "single", "semicolons": "asNeeded" }
   },
-  "files": { "includes": ["**", "!node_modules", "!dist", "!pnpm-lock.yaml"] },
+  "files": {
+    "includes": [
+      "**",
+      "!node_modules",
+      "!dist",
+      "!.next",
+      "!docs-site/node_modules",
+      "!docs-site/.next",
+      "!docs-site/out",
+      "!docs-site/next-env.d.ts",
+      "!**/pnpm-lock.yaml",
+      "!**/*.tsbuildinfo",
+      "!.playwright-cli",
+      "!.workbuddy"
+    ]
+  },
   "css": { "parser": { "tailwindDirectives": true } },
   "linter": {
     "rules": {

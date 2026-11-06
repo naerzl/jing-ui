@@ -683,7 +683,7 @@ export function DataTable<T extends object>({
         {pagination && (
           <div
             className={cn(
-              'flex items-center justify-between',
+              'flex flex-wrap items-center justify-between gap-3',
               'shrink-0 border-t border-border',
               size === 'compact'
                 ? 'px-4 py-3 text-xs text-muted-foreground'

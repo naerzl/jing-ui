@@ -1,0 +1,28 @@
+{
+  "title": "组件",
+  "pages": [
+    "index",
+    "---表单输入---",
+    "input",
+    "textarea",
+    "select",
+    "multi-select",
+    "counted-input",
+    "counted-textarea",
+    "input-count",
+    "---数据展示---",
+    "table",
+    "desc-list",
+    "money-text",
+    "time-text",
+    "---导航流程---",
+    "steps",
+    "pagination",
+    "---状态反馈---",
+    "status-tag",
+    "empty-state",
+    "result-card",
+    "---业务组件---",
+    "data-table"
+  ]
+}

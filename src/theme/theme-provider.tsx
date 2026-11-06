@@ -28,9 +28,23 @@ function getStoredAccent(): AccentColor {
     : 'cobalt'
 }
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [mode, setMode] = React.useState<ColorMode>(getStoredMode)
-  const [accent, setAccent] = React.useState<AccentColor>(getStoredAccent)
+export function ThemeProvider({
+  children,
+  initialMode,
+  initialAccent,
+  persist = true,
+}: {
+  children: React.ReactNode
+  initialMode?: ColorMode
+  initialAccent?: AccentColor
+  persist?: boolean
+}) {
+  const [mode, setMode] = React.useState<ColorMode>(
+    () => initialMode ?? getStoredMode(),
+  )
+  const [accent, setAccent] = React.useState<AccentColor>(
+    () => initialAccent ?? getStoredAccent(),
+  )
 
   React.useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)')
@@ -41,14 +55,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
     apply()
     media.addEventListener('change', apply)
-    localStorage.setItem(THEME_STORAGE_KEY, mode)
+    if (persist) localStorage.setItem(THEME_STORAGE_KEY, mode)
     return () => media.removeEventListener('change', apply)
-  }, [mode])
+  }, [mode, persist])
 
   React.useEffect(() => {
     document.documentElement.dataset.accent = accent
-    localStorage.setItem(ACCENT_STORAGE_KEY, accent)
-  }, [accent])
+    if (persist) localStorage.setItem(ACCENT_STORAGE_KEY, accent)
+  }, [accent, persist])
 
   return (
     <ThemeContext.Provider value={{ mode, accent, setMode, setAccent }}>

@@ -1,7 +1,13 @@
 node_modules/
 dist/
 .DS_Store
+.idea/
 *.local
 .env
 .env.*
 !.env.example
+.next/
+out/
+*.tsbuildinfo
+.playwright-cli/
+.workbuddy/
